@@ -4,7 +4,7 @@ import './Collab.css';
 import CollabHeader from "./CollabHeader";
 
 function CollabStory(props) {
-  const ArticleCard = styled.a`
+  const ArticleCard = styled.div`
     box-sizing: border-box;
     font-family: 'Gotham Condensed';
     font-size: 24px;
@@ -14,9 +14,6 @@ function CollabStory(props) {
     text-align: left;
     max-width: 1252px;
     width: 90%;
-    display: block;
-    color: black;
-    text-decoration: none;
   `;
   const ArticleImg = styled.img`
     width: 100%;
@@ -24,8 +21,10 @@ function CollabStory(props) {
   const ArticleInfo = styled.div`
     padding: 26px 2%;
   `;
-  const ArticleTitle = styled.div`
+  const ArticleTitle = styled.a`
     max-width: 561px;
+    color: black;
+    text-decoration: none;
   `;
   const ArticleByline = styled.div`
     font-family: 'Press Start 2P';
@@ -39,10 +38,10 @@ function CollabStory(props) {
       <CollabHeader data={props.data}/>
       {
         props.data['article_cards'].map((card, index) =>
-          <ArticleCard href={card['article_link']} key={index}>
+          <ArticleCard key={index}>
             <ArticleImg src={card['image_link']}/>
             <ArticleInfo>
-              <ArticleTitle>{card['title']}</ArticleTitle>
+              <ArticleTitle href={card['article_link']}>{card['title']}</ArticleTitle>
               <ArticleByline>{card['byline']}</ArticleByline>
             </ArticleInfo>
           </ArticleCard>

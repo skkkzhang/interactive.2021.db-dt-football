@@ -6,7 +6,7 @@ import ShareIcon from '../share.png';
 import PodcastBackground from '../podcast_background.png';
 
 function CollabPodcast(props) {
-  const PodcastCard = styled.a`
+  const PodcastCard = styled.div`
     box-sizing: border-box;
     font-family: 'Gotham Condensed';
     font-size: 24px;
@@ -16,8 +16,6 @@ function CollabPodcast(props) {
     text-align: left;
     max-width: 1252px;
     width: 90%;
-    color: black;
-    text-decoration: none;
     display: flex;
     align-items: center;
     position: relative;
@@ -26,15 +24,17 @@ function CollabPodcast(props) {
     background-position: 100% calc(100% - 40px);
   `;
   const PodcastImg = styled.img`
-    height: 100%;
-    max-height: 366px;
+    height: 366px;
+    width: 366px;
     z-index: 1;
   `;
   const PodcastInfo = styled.div`
     padding: 26px 5%;
   `;
-  const PodcastTitle = styled.div`
+  const PodcastTitle = styled.a`
     max-width: 573px;
+    color: black;
+    text-decoration: none;
   `;
   const PodcastByline = styled.div`
     font-family: 'Press Start 2P';
@@ -62,12 +62,12 @@ function CollabPodcast(props) {
       }}/>
       {
         props.data.map((card, index) =>
-          <PodcastCard href={card['podcast_link']} key={index}>
+          <PodcastCard key={index}>
             <PodcastImg src={card['image_link']}/>
             <PodcastInfo>
-              <PodcastTitle>{card['title']}</PodcastTitle>
+              <PodcastTitle href={card['podcast_link']}>{card['title']}</PodcastTitle>
               <PodcastByline>{card['byline']}</PodcastByline>
-              <PodcastShareButton src={ShareIcon}/>
+              <a href={card['podcast_link']}><PodcastShareButton src={ShareIcon}/></a>
             </PodcastInfo>
             <PodcastBar/>
           </PodcastCard>
