@@ -25,6 +25,7 @@ function CollabHeader(props) {
     font-weight: normal;
     font-size: 24px;
     line-height: 24px;
+    width: 100%;
     text-shadow:
             1px 1px 0 #fff, -1px 1px 0 #fff, 1px -1px 0 #fff, -1px -1px 0 #fff,
             0px 1px 0 #fff, 0px -1px 0 #fff, -1px 0px 0 #fff, 1px 0px 0 #fff,
