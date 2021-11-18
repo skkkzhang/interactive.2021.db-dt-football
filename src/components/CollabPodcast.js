@@ -17,6 +17,7 @@ function CollabPodcast(props) {
     max-width: 1252px;
     width: 90%;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     position: relative;
     background-image: url(${PodcastBackground});
@@ -27,9 +28,13 @@ function CollabPodcast(props) {
     height: 366px;
     width: 366px;
     z-index: 1;
+    @media screen and (max-width: 767px) {
+      width: 100%;
+      height: auto;
+    }
   `;
   const PodcastInfo = styled.div`
-    padding: 26px 5%;
+    padding: 26px 5% 40px 5%;
   `;
   const PodcastTitle = styled.a`
     max-width: 573px;
